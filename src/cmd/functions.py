@@ -38,7 +38,9 @@ def option(op):
         op_insert = int(input('>>> '))
         
     elif op == 2:
-        pass
+        ChargingBarToOpen()
+        title_delete()
+        op_delete = int(input('>>> '))
 
     elif op == 3:
         pass

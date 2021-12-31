@@ -32,3 +32,17 @@ def title_insert(): #Función titulo de insertar  | title_insert function
     print("║ INSERTAR REGISTROS Y GUARDAR  ║        ║".center(127," "))
     print("║  EN UN ARCHIVO LOS REGISTROS  ║    3   ║".center(127," "))
     print("╚═══════════════════════════════╩════════╝".center(127," "))
+
+def title_delete(): #Función titulo de borrar  | title_delete function
+    system("cls")
+    print("\n\n\n\n\n")
+    print("╔═══════════════════════════════╦════════╗".center(127," "))
+    print("║            OPCIONES           ║ CÓDIGO ║".center(127," "))
+    print("╠═══════════════════════════════╬════════╣".center(127," "))
+    print("║    ELIMINAR UNICO REGISTRO    ║    1   ║".center(127," "))
+    print("╠═══════════════════════════════╬════════╣".center(127," "))
+    print("║         ELIMINAR TODO         ║    2   ║".center(127," "))
+    print("╠═══════════════════════════════╬════════╣".center(127," "))
+    print("║  ELIMINAR REGISTROS Y BORRAR  ║        ║".center(127," "))
+    print("║  EL ARCHIVO DE LOS REGISTROS  ║    3   ║".center(127," "))
+    print("╚═══════════════════════════════╩════════╝".center(127," "))
