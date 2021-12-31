@@ -1,23 +1,23 @@
-from os import system
+from utils import *
+from progress.bar import *
+from tqdm import *
+import time
 
 def main():
-    title()
+    while True:
+        title()
+        op = int(input('>>> '))
+        option(op)
 
-def title(): #Función de titulo | Title function
-    system("cls")
-    print("\n\n\n\n\n")
-    print("╔══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╗".center(127," "))
-    print("║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║".center(127," "))
-    print("║  ╠══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╣  ║".center(127," "))
-    print("║  ║                        BASE DE DATOS - RECORDS                        ║  ║".center(127," "))
-    print("║  ╠═══════════════════════════════════╦═══════════════════════════════════╣  ║".center(127," "))
-    print("║  ║     INSERTAR NUEVO REGISTRO       ║                1                  ║  ║".center(127," "))
-    print("║  ╠═══════════════════════════════════╬═══════════════════════════════════╣  ║".center(127," "))
-    print("║  ║    ELIMINAR REGISTRO EXISTENTE    ║                2                  ║  ║".center(127," "))
-    print("║  ╠═══════════════════════════════════╬═══════════════════════════════════╣  ║".center(127," "))
-    print("║  ║    MOSTRAR REGISTRO EXISTENTE     ║                3                  ║  ║".center(127," "))
-    print("║  ╠═══════════════════════════════════╬═══════════════════════════════════╣  ║".center(127," "))
-    print("║  ║         CERRAR PROGRAMA           ║                0                  ║  ║".center(127," "))
-    print("║  ╠══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╬══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╦══╣  ║".center(127," "))
-    print("║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║  ║".center(127," "))
-    print("╚══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╩══╝".center(127," "))
+def ChargingBarToClose():
+    text = ' '.center(45," ")
+    bar = FillingSquaresBar(text, max=100)
+    for num in range(100):
+        time.sleep(0.03)
+        bar.next()
+    bar.finish()    
+    exit(0)
+
+def option(op):
+    if op == 0:
+        ChargingBarToClose()
