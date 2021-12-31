@@ -1,7 +1,7 @@
 from utils import *
-from progress.bar import *
-from tqdm import *
-import time
+from sql.connection import *
+
+# < --------------- main --------------- >
 
 def main():
     while True:
@@ -10,29 +10,16 @@ def main():
         menu_option(op)
 
 
-def ChargingBarToClose():
-    text = ' '.center(45," ")
-    bar = FillingSquaresBar(text, max=100)
-    for num in range(100):
-        time.sleep(0.03)
-        bar.next()
-    bar.finish()
-    system("cls")    
-    exit(0)
+# < --------------- Funciones de menú y elegir opción "insertar" --------------- >
 
-def ChargingBarToOpen():
-    text = ' '.center(45," ")
-    bar = PixelBar(text, max=100)
-    for num in range(100):
-        time.sleep(0.01)
-        bar.next()
-    bar.finish()
-    system("cls")  
-
+def option_insert():
+    title_insert()
+    op_insert = int(input('>>> '))
+    menu_insert(op_insert)
 
 def menu_insert(op_insert):
     if op_insert == 1:
-        pass
+        one_insert()
 
     elif op_insert == 2:
         pass
@@ -46,12 +33,40 @@ def menu_insert(op_insert):
     else:
         repeat()
         option_insert()
-        
-def option_insert():
-    title_insert()
-    op_insert = int(input('>>> '))
-    menu_insert(op_insert)
 
+def one_insert():
+    header_insert()
+    requirements()
+
+def two_insert():
+    header_insert()
+
+def three_insert():
+    header_insert()
+
+def requirements():
+    print('INGRESA LA MATRICULA : ')
+    enrollment = str(input('==> '))
+    print('INGRESA EL NOMBRE : ')
+    name = str(input('==> ')).upper()
+    print('INGRESA LOS APELLIDOS : ')
+    lastnames = str(input('==> ')).upper()
+    print('INGRESA EL CORREO INSTITUCIONAL : ')
+    mail = str(input('==> ')).lower()
+    
+    insert_into = """INSERT INTO info (MATRICULA, NOMBRE, APELLIDOS, CORREO_INSTITUCIONAL) VALUES (?, ?, ?, ?)"""
+    values = (enrollment , name, lastnames, mail)
+    cursor.execute(insert_into,values)
+    cursor.close()
+    connection.commit()
+    connection.close()
+    
+# < --------------- Funciones de menú y elegir opción "eliminar" --------------- >
+
+def option_delete():
+    title_delete()
+    op_delete = int(input('>>> '))
+    menu_delete(op_delete)
 
 def menu_delete(op_delete):
     if op_delete == 1:
@@ -70,12 +85,17 @@ def menu_delete(op_delete):
         repeat()
         option_delete()
 
-def option_delete():
-    title_delete()
-    op_delete = int(input('>>> '))
-    menu_delete(op_delete)
+def one_delete():
+    header_delete()
 
+def two_delete():
+    header_delete()
 
+def three_delete():
+    header_delete()
+
+    
+# < --------------- Funciones de menú principal--------------- >
 def menu_option(op):
     if op == 0:
         ChargingBarToClose()
