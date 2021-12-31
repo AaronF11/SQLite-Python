@@ -22,10 +22,10 @@ def menu_insert(op_insert):
         one_insert()
 
     elif op_insert == 2:
-        pass
+        two_insert()
 
     elif op_insert == 3:
-        pass
+        three_insert()
     
     elif op_insert == 0:
         pass
@@ -40,26 +40,73 @@ def one_insert():
 
 def two_insert():
     header_insert()
-
+    print('CANTIDAD DE REGISTROS A INGRESAR')
+    loop = int(input('>>> '))
+    for i in range(loop):
+        requirements()
+    
 def three_insert():
     header_insert()
+    print('CANTIDAD DE REGISTROS A INGRESAR')
+    loop = int(input('>>> '))
+    for i in range(loop):
+        makefile()
 
 def requirements():
-    print('INGRESA LA MATRICULA : ')
-    enrollment = str(input('==> '))
-    print('INGRESA EL NOMBRE : ')
-    name = str(input('==> ')).upper()
-    print('INGRESA LOS APELLIDOS : ')
-    lastnames = str(input('==> ')).upper()
-    print('INGRESA EL CORREO INSTITUCIONAL : ')
-    mail = str(input('==> ')).lower()
+    print('INGRESA LA MATRICULA')
+    enrollment = str(input('>>> '))
+    print('INGRESA EL NOMBRE')
+    name = str(input('>>> ')).upper()
+    print('INGRESA LOS APELLIDOS')
+    lastnames = str(input('>>> ')).upper()
+    print('INGRESA EL CORREO INSTITUCIONAL')
+    mail = str(input('>>> ')).lower()
     
-    insert_into = """INSERT INTO info (MATRICULA, NOMBRE, APELLIDOS, CORREO_INSTITUCIONAL) VALUES (?, ?, ?, ?)"""
+    insert_into = """INSERT INTO records (MATRICULA, NOMBRE, APELLIDOS, CORREO_INSTITUCIONAL) VALUES (?, ?, ?, ?)"""
     values = (enrollment , name, lastnames, mail)
     cursor.execute(insert_into,values)
     cursor.close()
     connection.commit()
     connection.close()
+
+    tqdmProgressBar()
+
+def makefile():
+    print('INGRESA LA MATRICULA')
+    enrollment = str(input('>>> '))
+    print('INGRESA EL NOMBRE')
+    name = str(input('>>> ')).upper()
+    print('INGRESA LOS APELLIDOS')
+    lastnames = str(input('>>> ')).upper()
+    print('INGRESA EL CORREO INSTITUCIONAL')
+    mail = str(input('>>> ')).lower()
+    
+    file = open('src/txt/records.txt', 'a')
+    include_enrollment = ' MATRICULA : ' + enrollment
+    include_name = ' NOMBRE : ' + name
+    include_lastnames = ' APELLIDOS : ' + lastnames
+    include_mail = ' CORREO INSTITUCIONAL : ' + mail
+    file.write('| ')
+    file.write(include_enrollment)
+    file.write(' | ')
+    file.write(include_name)
+    file.write(' | ')
+    file.write(include_lastnames)
+    file.write(' | ')
+    file.write(include_mail)
+    file.write(' | ')
+    file.write('\n')
+    file.close()
+
+    insert_into = """INSERT INTO records (MATRICULA, NOMBRE, APELLIDOS, CORREO_INSTITUCIONAL) VALUES (?, ?, ?, ?)"""
+    values = (enrollment , name, lastnames, mail)
+    cursor.execute(insert_into,values)
+    cursor.close()
+    connection.commit()
+    connection.close()
+
+    tqdmProgressBar()
+    
     
 # < --------------- Funciones de menú y elegir opción "eliminar" --------------- >
 
