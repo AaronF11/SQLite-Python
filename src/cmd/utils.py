@@ -13,11 +13,10 @@ def ChargingBarToClose():
     text = ' '.center(45," ")
     bar = PixelBar(text, max=100)
     for num in range(100):
-        time.sleep(0.03)
+        time.sleep(0.01)
         bar.next()
     bar.finish()
     system("cls")    
-    exit(0)
 
 def ChargingBarToOpen():
     system("cls")
@@ -32,7 +31,7 @@ def ChargingBarToOpen():
 
 def tqdmProgressBarSave():
     for item in tqdm(range(100)):
-        time.sleep(0.01)
+        time.sleep(0.03)
 
 def tqdmProgressBarDelete():
     text = ' '.center(45," ")
@@ -101,6 +100,23 @@ def title_delete(): #Función titulo de borrar  | title_delete function
     print("║   REGRESAR AL MENÚ PRINCIPAL  ║    0   ║".center(127," "))
     print("╚═══════════════════════════════╩════════╝".center(127," "))
 
+def title_show(): #Función titulo de mostrar  | title_show function
+    print(spacer)
+    print("╔═══════════════════════════════╦════════╗".center(127," "))
+    print("║            OPCIONES           ║ CÓDIGO ║".center(127," "))
+    print("╠═══════════════════════════════╬════════╣".center(127," "))
+    print("║  MOSTRAR REGISTROS Y TABLAS   ║        ║".center(127," "))
+    print("║  DENTRO DE LA BASE DE DATOS   ║    1   ║".center(127," "))
+    print("╠═══════════════════════════════╬════════╣".center(127," "))
+    print("║  MOSTRAR REGISTROS            ║        ║".center(127," "))
+    print("║  DEL ARCHIVO DE REGISTRO      ║    2   ║".center(127," "))
+    print("╠═══════════════════════════════╬════════╣".center(127," "))
+    print("║  MOSTRAR REGISTROS Y TABLAS   ║        ║".center(127," "))
+    print("║  DEL ARCHIVO Y BASE DE DATOS  ║    3   ║".center(127," "))
+    print("╠═══════════════════════════════╬════════╣".center(127," "))
+    print("║   REGRESAR AL MENÚ PRINCIPAL  ║    0   ║".center(127," "))
+    print("╚═══════════════════════════════╩════════╝".center(127," "))
+
 def header_insert(): #Función encabezado de insertar| header_insert function
     system("cls")
     print("╔══════════════════════════════╗".center(127," "))
@@ -117,4 +133,22 @@ def header_show(): #Función encabezado de mostrar| header_show function
     system("cls")
     print("╔══════════════════════════════╗".center(127," "))
     print("║         MOSTRAR DATOS        ║".center(127," "))
+    print("╚══════════════════════════════╝".center(127," "))
+
+def show_tables():
+    print(spacer)
+    print("╔══════════════════════════════╗".center(127," "))
+    print("║            TABLAS            ║".center(127," "))
+    print("╚══════════════════════════════╝".center(127," "))
+
+def show_records():
+    print(spacer)
+    print("╔══════════════════════════════╗".center(127," "))
+    print("║           REGISTROS          ║".center(127," "))
+    print("╚══════════════════════════════╝".center(127," "))
+
+def show_records_file():
+    print(spacer)
+    print("╔══════════════════════════════╗".center(127," "))
+    print("║  REGISTROS EN ARCHIVO LOCAL  ║".center(127," "))
     print("╚══════════════════════════════╝".center(127," "))
