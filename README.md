@@ -7,7 +7,20 @@
 
 <h2 align="center" id="about"> Sobre el repositorio </h2>
 
-<center>Segunda version de SQL-PYTHON-Practicas</center>
+<center>Segunda version de SQL-PYTHON-Practicas
+
+</center>
+<hr>
+<h3 align="center">Versión en terminal</h3>
+
+![](src/image/terminal.png)
+
+<hr>
+<h3 align="center">Versión gráfica</h3>
+
+![](src/image/UI.png)
+
+<hr>
 
 ## 💻 Tecnologias 
 
