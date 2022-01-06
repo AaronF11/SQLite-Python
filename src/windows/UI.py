@@ -1,4 +1,4 @@
-from funtions import *
+from functions import *
 from tkinter import * 
 import tkinter
 import sqlite3
